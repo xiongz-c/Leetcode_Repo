@@ -2,7 +2,7 @@
  * main class in this project, use to run samples.
  */
 
-//P33
+//oh！useless class！
 public class Main {
     
 }

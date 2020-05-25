@@ -1,5 +1,8 @@
 /**
  * problem 33: Search in Rotated Sorted Array
+ * 分成两段的数组进行二分搜索
+ * 本题需要两个函数：找到分界点/二分搜索
+ * 找到rotate pivot（实际的数组起点）后，target相对于pivot的位置安排在不同区间进行二分搜索
  */
 
 public class P0033 {
