@@ -28,6 +28,7 @@ Thumbs.db
 
 # idea ignore
 .idea/
+out/
 *.ipr
 *.iws
 .mymetadata
