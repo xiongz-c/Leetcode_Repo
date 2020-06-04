@@ -20,7 +20,6 @@ public class P0238 {
         public int[] productExceptSelf(int[] nums) {
             int len = nums.length;
             int[] ans = new int[len];
-            for (int e:ans)e = 1;
             int temp =1;
             for (int i = 0;i <len;i++){
                 if(i==0)ans[i] = 1;
