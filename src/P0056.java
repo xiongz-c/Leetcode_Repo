@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 /**
- * P:Merge Intervals
+ * P0056：Merge Intervals
+ * 题意：给一组数组，只要有相交的数组就结合在一起
  */
 
 public class P0056 {
     public static void main( String[] args ) {
-        int[][] test = new int[][]{{1,4},{0,4}};
+        int[][] test = new int[][]{{2,3},{4,5},{6,7},{1,10}};
         Solution sol = new Solution();
         int[][] ans = sol.merge( test );
         for (int[] e:ans){
@@ -30,7 +30,7 @@ public class P0056 {
             }
             //Sorting based on both arrays 1st element
             Arrays.sort(intervals, (a, b) -> a[0] - b[0]);//lambda写比较器
-            List<int[]> result= new ArrayList<int[]>();
+            List<int[]> result= new ArrayList<>();
             //Take the first interval and add it to the result
             int[] curr = intervals[0];
             result.add(curr);
@@ -41,7 +41,6 @@ public class P0056 {
                 int currEnd= curr[1];
                 int nextBegin= arr[0];
                 int nextEnd= arr[1];
-
                 if(currEnd >= nextBegin)
                 {
                     //By changing the ending value in curr, it will automatically
@@ -56,13 +55,6 @@ public class P0056 {
                 }
             }
             return result.toArray(new int[result.size()][]);
-        }
-
-    }
-    static class Cmp implements Comparator<int[]> {
-        @Override
-        public int compare( int[] o1 , int[] o2 ) {
-            return o1[1]-o2[1];
         }
     }
 }
