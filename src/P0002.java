@@ -1,3 +1,9 @@
+/**
+ * P0002:Add Two Numbers
+ * 题意：链表相加
+ * 注意处理进位
+ */
+
 public class P0002 {
     public static void main( String[] args ) {
         ListNode a = new ListNode( 2 );
