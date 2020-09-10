@@ -19,7 +19,7 @@ target/
 *.cache
 *.diff
 *.patch
-*.tmp
+*.week205.P1579
 
 # system ignore
 .DS_Store
