@@ -10,7 +10,7 @@ public class P0136 {
     }
     static class Solution{
         public int singleNumber(int[] nums) {
-            int ans= 0,len = nums.length;
+            int ans= 0;
             for (int num : nums) {
                 ans ^= num;
             }

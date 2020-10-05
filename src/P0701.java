@@ -10,8 +10,6 @@
     public static void main(String[] args) {
          
      }
-     
-  Definition for a binary tree node.
     static class TreeNode {
       int val;
       TreeNode left;

@@ -20,7 +20,6 @@ public class P0003 {
         public int minSwaps( int[][] grid ) {
             int len = grid.length;
             int[] res = new int[len];
-            int[] index = new int[len];
             for (int i = 0; i < len; i++) {
                 int tmp = 0;
                 for (int j = len - 1; j > -1; j--) {

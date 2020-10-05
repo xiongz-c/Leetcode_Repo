@@ -37,8 +37,7 @@ public class P0056 {
 
             for(int[] arr:intervals)
             {
-                int currBegin = curr[0];
-                int currEnd= curr[1];
+                int currEnd = curr[1];
                 int nextBegin= arr[0];
                 int nextEnd= arr[1];
                 if(currEnd >= nextBegin)

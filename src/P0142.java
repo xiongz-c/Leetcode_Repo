@@ -17,8 +17,7 @@ public class P0142 {
     }
     static public class Solution {
         public ListNode detectCycle(ListNode head) {
-            int pos = -1;
-            ListNode p1 = head,p2 = head;
+            ListNode p1 = head, p2 = head;
             boolean with_cycle = false;
             while(p2!=null && p1!=null && p1.next!=null){
                 p2 = p2.next;

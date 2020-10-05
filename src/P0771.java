@@ -1,7 +1,8 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * P0771. 宝石与石头
- * 题意：给定字符串J和S，判断S中含有多少个J中的字符
- * 题解：暴力做法O（mn），打表，然后用hash表读取可以做到O（m+n）
+ * P0771. 宝石与石头 题意：给定字符串J和S，判断S中含有多少个J中的字符 题解：暴力做法O（mn），打表，然后用hash表读取可以做到O（m+n）
  * J存hash集合，O1判断；或者S存哈希表；
  */
 

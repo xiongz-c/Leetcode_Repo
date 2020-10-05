@@ -15,10 +15,11 @@ class P0474{
             for(int i = 0;i < strs.length;i++){
                 for(int j = m;j >= counter[i][0];j--){
                     for(int k = n;k >= counter[i][1];k--){
-                        dp[j][k] = max(dp[j][k], 1+dp[j-counter[i][0]][k-counter[i][1]]);
+                        dp[j][k] = Math.max(dp[j][k], 1+dp[j-counter[i][0]][k-counter[i][1]]);
                     }
                 }
             }
+            return dp[m][n];
         }
 
         public int[][] count_0_1(String[] strs){
