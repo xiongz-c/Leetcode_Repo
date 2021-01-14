@@ -1,3 +1,3 @@
-# Leetcode练习仓库
+# Leetcode_Repo
 
-自己写Leetcode的代码和思路
+自己写Leetcode题目的一些思路和代码仓库。
