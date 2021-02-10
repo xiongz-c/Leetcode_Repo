@@ -35,10 +35,14 @@ func(rech *RectHeap) Push(h interface{}) {
 }
 
 func(rech *RectHeap) Pop() interface{}{
-	last := len(*rech) - 1
-	res := (*rech)[last]
-	*rech = (*rech)[:last]
-	return res
+	// last := len(*rech) - 1
+	// res := (*rech)[last]
+	// *rech = (*rech)[:last]
+	// return res
+	n := len(*rech)
+	x := (*rech)[n-1]      // 返回删除的元素
+	*rech = (*rech)[:n-1] // [n:m]不包括下标为m的元素
+	return x
 }
 
 func main(){
@@ -70,8 +74,8 @@ func (h *IntHeap) Push(x interface{}) {
 }
 
 func (h *IntHeap) Pop() interface{} {
-	n := len(old)-1
-	x := old[n]
+	n := len(*h)-1
+	x := (*h)[n]
 	*h = (*h)[0 : n]
 	return x
 }
