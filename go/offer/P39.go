@@ -1,9 +1,7 @@
 //题意：判断二叉树是否平衡
-//题解：递归，这里其实可以返回-1来剪枝，不过练习一下error的用法多写了一点
+//题解：递归
 package main
 import . "nc_tools"
-
-import "errors"
 /*
  * type TreeNode struct {
  *   Val int
@@ -19,40 +17,35 @@ import "errors"
 */
 func IsBalanced_Solution( pRoot *TreeNode ) bool {
     // write code here
-    if pRoot == nil {
+    if pRoot == nil{
         return true
     }
-    
-    ld,err := deep(pRoot.Left,1)
-    if err!=nil{
+    ld := deep(pRoot.Left,0)
+    rd := deep(pRoot.Right,0)
+    if abs(ld-rd) > 1{
         return false
     }
-    
-    rd,err := deep(pRoot.Right,1)
-    if err!=nil{
-        return false
-    }
-    return ld - rd <= 1 && ld - rd >= -1
+    return IsBalanced_Solution(pRoot.Left) && IsBalanced_Solution(pRoot.Right)
 }
 
-func deep(root *TreeNode, depth int) (int, error){
-    if root == nil {
-        return 0,nil
+func deep(root *TreeNode,dep int)int{
+    if root == nil{
+        return dep
     }
-    leftDepth,err := deep(root.Left,depth)
-    if err!=nil{
-        return 0, errors.New("not balance")
+    return max(deep(root.Left,dep+1),deep(root.Right,dep+1))
+}
+
+
+func max(a,b int)int{
+    if a > b{
+        return a
     }
-    rightDepth,err := deep(root.Right,depth)
-    if err!=nil{
-        return 0, errors.New("not balance")
+    return b
+}
+
+func abs(a int) int{
+    if a < 0{
+        return -a
     }
-    if leftDepth - rightDepth > 1 || leftDepth - rightDepth < -1{
-        return 0, errors.New("not balance")
-    }
-    if leftDepth > rightDepth{
-        return depth + leftDepth, nil
-    }else{
-        return depth + rightDepth, nil
-    }
+    return a
 }
