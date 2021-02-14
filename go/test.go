@@ -2,11 +2,12 @@ package main
 
 import (
     "fmt"
+	"strings"
 )
 
 func main(){
-	var str string
-	fmt.Scanf("%s \n",&str)
-    fmt.Println(str)
+	str := "wqdqw"
+	strs := strings.Split(str,".")
+	fmt.Println(strs,len(strs),len(strs[1]))
 }
 
