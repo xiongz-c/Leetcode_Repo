@@ -32,7 +32,5 @@ func dfs(root *TreeNode){
     if root.Right != nil{
         dfs(root.Right)
     }
-    temp := root.Left
-    root.Left = root.Right
-    root.Right = temp
+    root.Left, root.Right = root.Right, root.Left
 }
