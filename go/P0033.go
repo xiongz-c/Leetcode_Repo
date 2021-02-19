@@ -1,4 +1,4 @@
-//题意：【jz33变式】旋转数组找数
+//题意：【jz06变式】旋转数组找数
 //题解：二分，这是一个很牛逼的写法
 func search(nums []int, target int) int {
     idx := bSearch(nums,0,len(nums)-1,target)
