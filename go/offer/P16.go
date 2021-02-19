@@ -1,3 +1,5 @@
+//题意：合并有序链表
+//题解：
 package main
 import . "nc_tools"
 /*

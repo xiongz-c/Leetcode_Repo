@@ -15,7 +15,7 @@ func IsPopOrder( pushV []int ,  popV []int ) bool {
     popIdx := 0
     for _,val := range(pushV){
         stack = append(stack, val)
-        for popIdx < len(popV) && popV[popIdx] == stack[len(stack)-1]{
+        for popIdx < len(popV) && len(stack) > 0 && popV[popIdx] == stack[len(stack)-1]{
             stack = stack[:len(stack)-1]
             popIdx++;
         }

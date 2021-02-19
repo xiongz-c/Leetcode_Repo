@@ -1,3 +1,5 @@
+//题意：找到链表倒数第k个节点
+//题解：快慢指针。
 package main
 import . "nc_tools"
 /*

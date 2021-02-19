@@ -23,20 +23,19 @@ func reConstructBinaryTree( pre []int ,  vin []int ) *TreeNode {
 }
 
 func buildTree(preBegin int, inStart int, inEnd int, pre []int, vin []int) *TreeNode {
-    if preBegin > len(pre) || inStart > inEnd{
+    if preBegin >= len(pre) || inStart > inEnd{
         return nil
     }
-    
-    var root *TreeNode = new (TreeNode)
-    begIndex := -1
-    for i := inStart; i <= inEnd; i++{
-        if pre[preBegin] == vin[i]{
-            begIndex = i 
+    root := new(TreeNode)
+    rootIndex := 0//the position of root in inorder
+    for i:=inStart;i<=inEnd;i++{
+        if vin[i] == pre[preBegin]{
+            rootIndex = i
             break
         }
     }
     root.Val = pre[preBegin]
-    root.Left = buildTree(preBegin + 1, inStart, begIndex-1, pre, vin)
-    root.Right = buildTree(preBegin + 1 + begIndex - inStart, begIndex + 1, inEnd, pre, vin)
+    root.Left = buildTree(preBegin+1,inStart,rootIndex-1,pre,vin)
+    root.Right = buildTree(preBegin+1+rootIndex-inStart,rootIndex+1,inEnd,pre,vin)
     return root
 }

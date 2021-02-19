@@ -18,9 +18,7 @@ func printListFromTailToHead( head *ListNode ) []int {
     // write code here
     var arr []int
     for head != nil {
-        arr2 := make([]int, 1)
-        arr2[0] = head.Val
-        arr = append(arr2,arr...)
+        arr = append([]int{head.Val},arr...)
         head = head.Next
     }
     return arr
