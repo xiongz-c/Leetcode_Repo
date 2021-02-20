@@ -2,6 +2,7 @@
 //题解：递归，注意清空全局变量，注意路径的定义是一定要到叶子节点
 package main
 import . "nc_tools"
+import "fmt"
 /*
  * type TreeNode struct {
  *   Val int
@@ -18,29 +19,30 @@ import . "nc_tools"
  * @return int整型二维数组
 */
 var ans [][]int
-
 func FindPath( root *TreeNode ,  expectNumber int ) [][]int {
     // write code here
     if root == nil{
         return nil
     }
+    ans=nil// 注意：这里的初始化不能用make([][]int,0),要赋值nil
     stack := make([]int,0)
-    dfs(root, stack,0,expectNumber)
-    result := ans
-    ans = nil
-    return result
+    dfs(root,stack,expectNumber)
+    return ans
 }
 
-func dfs(root *TreeNode, stack []int,nowNum int, target int){
+func dfs(root *TreeNode,stack []int, expectNumber int){
     if root == nil{
         return
     }
-    if nowNum == target - root.Val{
-        if root.Left == nil && root.Right == nil{
-            ans = append(ans,append(stack,root.Val))
+    if root.Left == nil && root.Right == nil{
+        if expectNumber == root.Val{
+            fmt.Println(stack,expectNumber)
+            ans = append(ans, append(stack,root.Val))
         }
         return
     }
-    dfs(root.Left,append(stack, root.Val),nowNum + root.Val, target)
-    dfs(root.Right,append(stack, root.Val),nowNum + root.Val, target)
+    stack = append(stack, root.Val)
+    dfs(root.Left,stack,expectNumber-root.Val)
+    dfs(root.Right,stack,expectNumber-root.Val)
+    stack = stack[:len(stack)-1]
 }
