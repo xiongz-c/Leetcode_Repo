@@ -6,13 +6,17 @@ import . "nc_tools"
 
 /**标准写法
 func hasSubtree( pRoot1 *TreeNode ,  pRoot2 *TreeNode ) bool {
-        return (pRoot1 != nil && pRoo2 != nil) && (recur(pRoot1, pRoot2) || isSubStructure(pRoot1.left, pRoot2) || isSubStructure(pRoot1.right, pRoot2));
+        return (pRoot1 != nil && pRoo2 != nil) && (recur(pRoot1, pRoot2) || hasSubtree(pRoot1.left, pRoot2) || hasSubtree(pRoot1.right, pRoot2))
     }
-    func recur( pRoot1 *TreeNode ,  pRoot2 *TreeNode ) bool {
-        if(pRoot2 == null) return true;
-        if(pRoot1 == null || pRoot1.val != pRoot2.val) return false;
-        return recur(pRoot1.left, pRoot2.left) && recur(pRoot1.right, pRoot2.right);
+func recur( pRoot1 *TreeNode ,  pRoot2 *TreeNode ) bool {
+    if pRoot2 == null {
+        return true
     }
+    if pRoot1 == null || pRoot1.val != pRoot2.val {
+        return false
+    } 
+    return recur(pRoot1.left, pRoot2.left) && recur(pRoot1.right, pRoot2.right)
+}
 
 */
 
