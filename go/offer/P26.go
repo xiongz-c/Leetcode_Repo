@@ -23,7 +23,7 @@ func Convert( pRootOfTree *TreeNode ) *TreeNode {
     if pRootOfTree == nil{
         return nil
     }
-    if pRootOfTree.Left==nil&&pRootOfTree.Right==nil{
+    if pRootOfTree.Left==nil && pRootOfTree.Right==nil{
             return pRootOfTree
     }
     dfs(pRootOfTree)
