@@ -5,30 +5,29 @@ package main
 import "math"
 
 func maxProduct(nums []int) int {
-	max := ^int(^uint(0) >> 1)//最小的int
-	imax := 1
-	imin := 1
-	for i := 0; i<len(nums); i++ {
-		if nums[i] < 0 { 
-		  tmp := imax;
-		  imax = imin;
-		  imin = tmp;
+	maxNum := math.MinInt32
+	imax, imin := 1, 1
+	for _, v := range nums {
+		if v < 0 {
+			imax, imin = imin, imax
 		}
-		if imax*nums[i] < nums[i]{
-			imax = nums[i]
-		}else{
-			imax = imax*nums[i]
-		}
-		if imin*nums[i] > nums[i]{
-			imin = nums[i]
-		}else{
-			imin = imin*nums[i]
-		}
-		if max < imax{
-			max = imax
-		}else{
-			max = max
-		}
+		imax = max(v, imax*v)
+		imin = min(v, imin*v)
+		maxNum = max(maxNum, imax)
 	}
-	return max;
+	return maxNum
+}
+
+func max(x, y int) int {
+	if x < y {
+		return y
+	}
+	return x
+}
+
+func min(x, y int) int {
+	if x > y {
+		return y
+	}
+	return x
 }
